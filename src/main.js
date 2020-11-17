@@ -16,6 +16,7 @@ AWS.config.update({
   region: "ap-northeast-1",
   endpoint: "https://dynamodb.ap-northeast-1.amazonaws.com"
 });
+console.log(process.env);
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
