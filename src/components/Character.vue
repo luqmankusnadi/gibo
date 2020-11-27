@@ -3,6 +3,12 @@
     <template #header>
       <div>
         Header Content
+        <pv-button>
+          <span class="p-mr-3">Amber</span>
+          <pv-button class="p-button-rounded p-p-0 p-m-0">
+            <i class="pi pi-times" style="fontSize: 1rem"></i>
+          </pv-button>
+        </pv-button>
       </div>
     </template>
     <div class="p-grid p-nogutter p-fluid">
@@ -15,27 +21,22 @@
           placeholder="Select a Character"
         />
       </div>
-      <div class="p-mb-1 p-mr-1 p-col-fixed p-shadow-1" style="width:100px">
-        Item 2
-      </div>
-      <div v-if="characterSelectedData" class="p-mb-1 p-col p-shadow-1">
-        {{ characterSelectedData.Name }}
-      </div>
       <div
         v-if="characterSelectedData"
         class="p-col-12 p-shadow-1 p-grid p-nogutter p-p-1"
       >
-        <div
-          v-for="(stat, index) in characterSelectedData.Stats['1']"
+        <template
+          v-for="(stat, index) in characterSelectedData.Stats[0]"
           :key="index"
         >
           <stat-label
+            v-if="stat != 0"
             :label="statName[index]"
             :value="stat"
             :color="statColor[index]"
             class="p-m-1"
           />
-        </div>
+        </template>
       </div>
     </div>
   </pv-panel>
